@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.bg {
+  position: fixed;
+  height: 200vh;
+  width: 200vw;
+  top: -50%;
+  left: -50%;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: 2;
+  z-index: 999999999;
+  pointer-events: none;
+}
+@keyframes bg-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
+
+.loaders {
+  background-color: #f9cf71;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.loaders .loadWrap .upperCon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.loaders .loadWrap .secCon {
+  font-size: 10vw;
+  font-weight: bold;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  min-height: 95vh;
+}
+
+.loadWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.loaders .rfm-marquee-container:hover {
+  color: #d94b23;
+}
+
+.HomePage {
+  height: auto;
+  width: 100%;
+}
+
+.HomeContent .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  padding-inline: 1%;
+  padding-top: 10px;
+  align-items: center;
+  z-index: 10;
+  z-index: 100000;
+  pointer-events: all;
+  font-size: clamp(1rem, 5vw, 1vw);
+  opacity: 0;
+}
+
+.HomeContent .header .logo {
+  line-height: 90%;
+}
+
+
+.HomeContent .header .midCon {
+  display: flex;
+  gap: 10px;
+  background-color: transparent;
+}
+
+.header .midCon .navItem .textOne {
+  color: #d94b23;
+}
+
+
+.header .midCon .navItem .textTwo:nth-child(2) {
+  position: absolute;
+  left: 0;
+  top: 90%;
+}
+
+.HomeContent .header .midCon .navItem {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+}
+
+
+.HomePage .HomeContent {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1%;
+  overflow: hidden;
+  transform: translateY(100%);
+  z-index: -1;
+}
+
+.HomeContent .firstCon {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 40%;
+  padding: 0;
+  margin-top: 5%;
+}
+
+.HomeContent .firstCon .imgCon {
+  height: 100%;
+  background-color: #ccc;
+  width: 100%;
+  max-width: 300px;
+  max-height: 0vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.HomeContent .text {
+  background-color: white;
+  width: 100%;
+}
+
+.HomeContent .firstCon .imgCon img {
+  height: 0%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.HomeContent {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.HomeContent .secCon {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.HomeContent .textCon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goY {
+  display: inline-block;
+  line-height: 100%;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.HomeContent .textCon .goY .textItem {
+  display: flex;
+  line-height: 90%;
+  font-size: 6vw;
+  font-weight: 900;
+  align-items: center;
+  justify-content: center;
+  transform: scaleY(1.2) translateY(100%);
+  transform-origin: top;
+
+}
+
+.HomeContent .textCon .goY:nth-child(1) .textItem:nth-child(1)::after {
+  content: 'ABOUT ME';
+  font-size: 1vw;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-self: flex-start;
+  margin-bottom: auto;
+}
+
+.HomeContent .textCon .goY:nth-child(2) .textItem::before {
+  content: 'ISSUE 21';
+  font-size: 1vw;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-self: flex-start;
+  margin-bottom: auto;
+  margin-left: 10%;
+}
+
+.HomeContent .textCon .goY:nth-child(3) .textItem::after {
+  content: 'WEB/MOBILE';
+  font-size: 1vw;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.HomeContent .secCon .textCon .goY:nth-child(4) .textItem .colored {
+  color: #d94b23;
+}
+
+.HomeContent .secCon .textCon .goY .textItem span {
+  height: 50%;
+  width: 3vw;
+  overflow: hidden;
+}
+
+
+.HomeContent .secCon .textCon .textItem span img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1200px) {
+  .HomeContent .secCon .textCon .textItem span {
+    height: 5%;
+    width: 40px;
+    overflow: hidden;
+    display: none;
+  }
+
+  .HomeContent .secCon .textCon {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .HomeContent .secCon .textCon .textItem {
+    font-size: 6.5vw;
+    font-weight: 1200;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .HomeContent .textCon .goY:nth-child(2) .textItem::before {
+    content: 'ISSUE 21';
+    font-size: 5vw;
+    margin-left: 0%;
+  }
+
+  .HomeContent .textCon .goY:nth-child(1) .textItem:nth-child(1)::after {
+    font-size: 3vw;
+  }
+
+  .HomeContent .textCon .goY:nth-child(2) .textItem::before {
+    font-size: 3vw;
+  }
+
+  .HomeContent .textCon .goY:nth-child(3) .textItem::after {
+    font-size: 3vw;
+  }
+
+  .HomeContent .firstCon {
+    height: 40%;
+  }
+
+  .HomeContent .firstCon .imgCon {
+    height: 100%;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .HomeContent .secCon .textCon .textItem {
+    font-weight: 1200;
+    font-size: 6.5vw;
+  }
+
+}
+
+.HomePage {
+  position: sticky;
+  top: 0;
+  scroll-snap-type: y mandatory;
+  /* Enable vertical snap scrolling */
+}
+
+.HomePage .section {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding: 1%;
+  background-color: white;
+  margin-top: 5%;
+  align-items: center;
+  top: 5%;
+  scroll-snap-align: start;
+  /* Snap to the start of the container */
+  position: sticky;
+}
+
+.HomePage .section .imageCon {
+  height: 0%;
+  width: 100%;
+  background-color: #ccc;
+  margin-left: 20%;
+  max-width: 700px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10%;
+}
+
+.HomePage .section .imageCon img {
+  height: 0%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.HomePage .stickyCon .section .textCon {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1%;
+  mix-blend-mode: difference;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+  transform: scaleX(1.5);
+  transform-origin: right;
+  font-size: 10vw;
+}
+
+
+.HomePage .section .textCon .textItem {
+  line-height: 90%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.HomePage .section .textCon .textItem span {
+  transform: translateY(-100%);
+}
+
+@media only screen and (max-width: 768px) {
+  .HomePage .section .imageCon {
+    margin-left: 0%;
+  }
+
+  .HomePage .section .textCon {
+    font-size: 4rem;
+  }
+
+}
+
+
+.HomePage .stickyCon {
+  position: sticky;
+  top: 0;
+  height: auto;
+}
+
+.HomePage .stickyCon .first {
+  height: 20vh;
+  position: sticky;
+  top: 0;
+}
+
+.HomePage .selected {
+  height: 100vh;
+  background-color: #989ec0;
+  position: sticky;
+  top: 0;
+  display: flex;
+  color: #d94b23;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  /* Snap to the start of the container */
+}
+
+.HomePage .selected .textCon {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.HomePage .selected .textCon .textItem {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+  transform: scaleX(1.5);
+  font-size: 15vw;
+  justify-content: center;
+  line-height: 90%;
+  transform: scaleX(2) scaleY(1.2);
+  overflow: hidden;
+}
+
+.HomePage .selected .textCon .textItem span {
+  transform: translateY(110%);
+}
+
+.HomePage .selected:nth-child(2) {
+  height: 100vh;
+  background-color: #d94b23;
+  position: sticky;
+  top: 0;
+}
+
+.HomePage .stickyCon .selectedProjects {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  padding: 1%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.selectedProjects .firstProject {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(1) {
+  height: 80vh;
+  width: 100%;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(1) .imgCon {
+  height: 0%;
+  width: 100%;
+  background-color: #ccc;
+  display: flex;
+  align-items: flex-end;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(1) .imgCon img {
+  height: 0%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(1) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(1) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+
+.selectedProjects .firstProject .projectItem:nth-child(2) {
+  height: 120vh;
+  width: 100%;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(2) .imgCon {
+  height: 0%;
+  width: 100%;
+  background-color: #ccc;
+  display: flex;
+  align-items: flex-end;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(2) .imgCon img {
+  height: 0%;
+  width: 100%;
+  object-fit: cover;
+}
+.selectedProjects .firstProject .projectItem:nth-child(2) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .firstProject .projectItem:nth-child(2) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+
+
+.selectedProjects .secProject {
+  display: flex;
+  gap: 15px;
+  margin-top: 10%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(2) {
+  height: 50vh;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(2) .imgCon {
+  height: 100%;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(2) .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(2) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(2) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(1) {
+  height: 100vh;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(1) .imgCon {
+  height: 100%;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(1) .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(1) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(1) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(3) {
+  height: 80vh;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(3) .imgCon {
+  height: 100%;
+  width: 100%;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(3) .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(3) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .secProject .projectItem:nth-child(3) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+
+.HomePage .selectedProjects .thirdProject {
+  display: flex;
+  margin-top: 50px;
+  gap: 15px;
+}
+
+
+.selectedProjects .thirdProject .projectItem:nth-child(1) {
+  height: 100vh;
+  width: 100%;
+
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(1) .imgCon {
+  height: 100%;
+  width: 100%;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(1) .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(1) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(1) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+
+
+
+.selectedProjects .thirdProject .projectItem:nth-child(2) {
+  height: 70vh;
+  width: 100%;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(2) .imgCon {
+  height: 100%;
+  width: 100%;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(2) .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(2) .textCon {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.selectedProjects .thirdProject .projectItem:nth-child(2) .textCon .midCon {
+  display: flex;
+  gap: 10px;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  .HomePage .selectedProjects .thirdProject,
+  .selectedProjects .secProject,
+  .selectedProjects .firstProject {
+    gap: 50px;
+  }
+
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.HomePage {
+  position: relative;
+}
+
+.selectedProjects .continue {
+  height: auto;
+  width: 100%;
+  padding-top: 10%;
+  text-align: center;
+  font-size: 10vw;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+}.selectedProjects .continue:hover {
+color: #fb6f3e;
+}
+
+
+.itemFooter {
+  background-color: #fb6f3e;
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  padding: 1%;
+  padding-top: 5%;
+  top: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 100000;
+}
+
+.itemFooter .firstCon {
+  font-size: 10vw;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+}
+
+.itemFooter .firstCon .textItem {
+  line-height: 90%;
+  overflow: hidden;
+}
+.itemFooter .firstCon .textItem span {
+  display: inline-block;
+  transform: translateY(100%);
+}
+.itemFooter .firstCon .textItem:nth-child(3) {
+  color: white;
+}
+.social{
+  opacity: 0;
+}
+.social:hover{
+  color: #989ec0;
+}
+.itemFooter .secCon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 5vw;
+  font-family: "Bebas Neue", sans-serif;
+  align-items: flex-end;
+  font-weight: 1000;
+}
+.whiteSpace {
+  height: 100vh;
+}
+.itemFooter .secCon .item:nth-child(2) {
+  font-size: 3vw;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+}
+
+.itemFooter .secCon .item:nth-child(2) .social {
+  line-height: 90%;
+  text-align: right;
+}
+
+@media only screen and (max-width: 800px) {
+  .itemFooter .firstCon {
+    font-size: 23vw;
+  }
+
+
+  .itemFooter .secCon {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 8vw;
+    font-family: "Bebas Neue", sans-serif;
+    align-items: flex-end;
+    font-weight: 1000;
+  }
+
+  .itemFooter .secCon .item:nth-child(2) {
+    font-size: 8vw;
+    color: #ccc;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none; /* Make sure the cursor doesn't interfere with mouse events */
+  z-index: 99999999999999999999999999999999999999999; /* Ensure the cursor stays on top of other elements */
+}
