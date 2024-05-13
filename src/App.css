@@ -7,6 +7,7 @@
   padding: 0;
   margin: 0;
 }
+
 .bg {
   position: fixed;
   height: 200vh;
@@ -20,18 +21,51 @@
   z-index: 999999999;
   pointer-events: none;
 }
+
 @keyframes bg-animation {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-  100% { transform: translate(5%,0) }
+  0% {
+    transform: translate(0, 0)
+  }
+
+  10% {
+    transform: translate(-5%, -5%)
+  }
+
+  20% {
+    transform: translate(-10%, 5%)
+  }
+
+  30% {
+    transform: translate(5%, -10%)
+  }
+
+  40% {
+    transform: translate(-5%, 15%)
+  }
+
+  50% {
+    transform: translate(-10%, 5%)
+  }
+
+  60% {
+    transform: translate(15%, 0)
+  }
+
+  70% {
+    transform: translate(0, 10%)
+  }
+
+  80% {
+    transform: translate(-15%, 0)
+  }
+
+  90% {
+    transform: translate(10%, 5%)
+  }
+
+  100% {
+    transform: translate(5%, 0)
+  }
 }
 
 .loaders {
@@ -46,7 +80,62 @@
   justify-content: space-between;
   overflow: hidden;
   flex-direction: column;
-  z-index: 100;
+  z-index: 109999999999999999990;
+  pointer-events: none;
+}
+
+html {
+  position: relative;
+}
+
+.header .menu {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.absoMenu {
+  background-color: #d94b23;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  height: 100vh !important;
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10099999900000000000000000000000000000000999999;
+  font-size: 10vw;
+  font-weight: bold;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+}
+
+.absoMenu .menuItems {
+  line-height: 90%;
+  overflow: hidden;
+}
+
+.absoMenu .menuItems span {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.header .menu .lines {
+  background-color: black;
+  height: 3px;
+  width: 25px;
+}
+
+
+.absoMenu .absoExit {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  font-size: 2rem;
 }
 
 .loaders .loadWrap .upperCon {
@@ -56,6 +145,8 @@
   justify-content: space-between;
   font-family: "Rajdhani", sans-serif;
   font-weight: 500;
+  height: 100px;
+  pointer-events: none;
 }
 
 .loaders .loadWrap .secCon {
@@ -66,7 +157,8 @@
   height: 100%;
   display: flex;
   align-items: flex-end;
-  min-height: 95vh;
+  height: calc(100vh - 100px);
+  pointer-events: none;
 }
 
 .loadWrap {
@@ -86,7 +178,7 @@
   width: 100%;
 }
 
-.HomeContent .header {
+.header {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -97,27 +189,26 @@
   padding-inline: 1%;
   padding-top: 10px;
   align-items: center;
-  z-index: 10;
-  z-index: 100000;
+  z-index: 1000;
   pointer-events: all;
   font-size: clamp(1rem, 5vw, 1vw);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 500;
   opacity: 0;
 }
 
-.HomeContent .header .logo {
+.header .logo {
   line-height: 90%;
 }
 
 
-.HomeContent .header .midCon {
+.header .midCon {
   display: flex;
   gap: 10px;
   background-color: transparent;
 }
 
-.header .midCon .navItem .textOne {
-  color: #d94b23;
-}
+
 
 
 .header .midCon .navItem .textTwo:nth-child(2) {
@@ -126,7 +217,7 @@
   top: 90%;
 }
 
-.HomeContent .header .midCon .navItem {
+.header .midCon .navItem {
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -135,7 +226,7 @@
 
 
 .HomePage .HomeContent {
-  height: 100vh;
+  height: 100vh !important;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -152,7 +243,8 @@
   justify-content: flex-end;
   height: 40%;
   padding: 0;
-  margin-top: 5%;
+  margin-top: 50px;
+  pointer-events: none;
 }
 
 .HomeContent .firstCon .imgCon {
@@ -394,6 +486,8 @@
 @media only screen and (max-width: 768px) {
   .HomePage .section .imageCon {
     margin-left: 0%;
+    max-height: 400px;
+    max-width: 300px;
   }
 
   .HomePage .section .textCon {
@@ -459,13 +553,17 @@
   top: 0;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 .HomePage .stickyCon .selectedProjects {
   background-color: white;
   position: sticky;
   top: 0;
   width: 100%;
   height: auto;
-  padding: 1%;
+  padding: 3%;
   padding-top: 4%;
   padding-bottom: 4%;
 }
@@ -526,6 +624,7 @@
   width: 100%;
   object-fit: cover;
 }
+
 .selectedProjects .firstProject .projectItem:nth-child(2) .textCon {
   display: flex;
   justify-content: space-between;
@@ -726,8 +825,10 @@
   font-size: 10vw;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 1000;
-}.selectedProjects .continue:hover {
-color: #fb6f3e;
+}
+
+.selectedProjects .continue:hover {
+  color: #fb6f3e;
 }
 
 
@@ -755,19 +856,24 @@ color: #fb6f3e;
   line-height: 90%;
   overflow: hidden;
 }
+
 .itemFooter .firstCon .textItem span {
   display: inline-block;
   transform: translateY(100%);
 }
+
 .itemFooter .firstCon .textItem:nth-child(3) {
   color: white;
 }
-.social{
+
+.social {
   opacity: 0;
 }
-.social:hover{
+
+.social:hover {
   color: #989ec0;
 }
+
 .itemFooter .secCon {
   display: flex;
   width: 100%;
@@ -777,9 +883,11 @@ color: #fb6f3e;
   align-items: flex-end;
   font-weight: 1000;
 }
+
 .whiteSpace {
   height: 100vh;
 }
+
 .itemFooter .secCon .item:nth-child(2) {
   font-size: 3vw;
   font-family: "Bebas Neue", sans-serif;
@@ -819,6 +927,220 @@ color: #fb6f3e;
   height: 20px;
   background-color: black;
   border-radius: 50%;
-  pointer-events: none; /* Make sure the cursor doesn't interfere with mouse events */
-  z-index: 99999999999999999999999999999999999999999; /* Ensure the cursor stays on top of other elements */
+  pointer-events: none;
+  /* Make sure the cursor doesn't interfere with mouse events */
+  z-index: 99999999999999999999999999999999999999999;
+  /* Ensure the cursor stays on top of other elements */
+}
+
+
+.About {
+  height: auto;
+  background-color: white;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.About .aboutCon {
+  padding: 1%;
+  padding-top: 80px;
+}
+
+.aboutCon .landing {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+}
+.aboutCon .container {
+  display: flex;
+  gap: 10vw;
+  align-items: flex-end;
+}
+.aboutCon .landing .imageCon {
+  height: 80%;
+  width: 60%;
+}
+.aboutCon .landing .imageCon .tetxt {
+  font-family: "Bebas Neue", sans-serif;
+  width: 100%;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+.aboutCon .landing .imageCon .tetxt .txt {
+  line-height: 90%;
+}
+
+.aboutCon .name {
+  font-size: 17vw;
+}
+.aboutCon .role {
+  font-size: 5vw;
+  overflow: hidden;
+}
+
+.aboutCon .landing .text {
+  width: 100%;
+  font-family: 100;
+  font-family: "Rajdhani", sans-serif;
+  max-width: 700px;
+  font-weight: 500;
+  font-size: clamp(1rem, 1vw, 5vw);
+  color: #818181;
+  line-height: 90%;
+}
+
+.aboutCon .landing .imageCon img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.aboutCon .textCon .textItem {
+  font-size: 27vw;
+  font-family: "Bebas Neue", sans-serif;
+  align-items: flex-end;
+  font-weight: 1000;
+  line-height: 85%;
+  transform: scaleX(1.5) scaleY(1.1);
+  transform-origin: left;
+overflow: hidden;
+  overflow: hidden;
+  
+}
+.aboutCon .textCon .textItem:nth-child(2) {
+  font-size: 29vw;
+  
+}
+@media only screen and (max-width: 768px) {
+  .aboutCon .textCon .textItem {
+    font-size: 27vw;
+  }
+  .aboutCon .container {
+    display: flex;
+    gap: 3vw;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+
+  }
+  .aboutCon .landing .imageCon {
+    height: 80%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    z-index: 999999999999999999999999999;
+  }
+
+  .header .midCon {
+    display: none;
+    gap: 10px;
+    background-color: transparent;
+  }
+}
+
+
+.aboutCon .textContent {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  border-bottom: 1px solid #ccc;
+  padding: 5% 2%;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.aboutCon .textContent .firstText {
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+  max-width: 600px;
+  font-weight: 500;
+  color: #818181;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.aboutCon .services .serviTitle {
+  font-size: 23vw;
+  font-family: "Bebas Neue", sans-serif;
+  align-items: flex-end;
+  font-weight: 1000;
+  line-height: 85%;
+  transform: scaleX(1.5) scaleY(1.1);
+  transform-origin: left;
+  margin-top: 50px;
+}
+.aboutCon .services .desc {
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+  max-width: 700px;
+  font-weight: 500;
+  color: #818181;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+
+.About {
+  overflow-x: hidden;
+}
+
+.aboutCon .lowerCon{
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+.aboutCon  .serviceCon {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.aboutCon .serviceCon .serviceItem {
+  font-size: 10vw;
+  font-family: "Bebas Neue", sans-serif;
+  width: 100%;
+  line-height: 90%;
+  display: flex;
+  align-items: center;
+}
+.aboutCon .serviceCon .serviceItem:hover {
+color: #d94b23;
+}
+.aboutCon .lowerCon .icon {
+  font-size: 6vw;;
+}
+
+
+.About::-webkit-scrollbar {
+  display: none;
+}
+
+.About .hoverImg {
+  height: 40vh;
+  width: 100%;
+  max-width: 300px;
+  position: fixed;
+  top: 5%;
+  left: 20%;
+  pointer-events: none;
+  z-index: 9999999999999999;
+  overflow: hidden;
+  scale: 0;
+  opacity: 0;
+}.About .hoverImg img {
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
 }

@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import Marquee from "react-fast-marquee";
 import brutalistImg from '../img/brutalistTwo.jpg'
 import sideBg from '../mockups/sideBg.jpg'
-
+import {useNavigate} from 'react-router-dom'
 //mockups img
 
 import cafeEunoia from '../mockups/cafe.png'
@@ -39,19 +39,17 @@ const Home = () => {
         window.scrollTo(0, 0)
         const interval = setInterval(() => {
             setPerc(prevPerc => {
-                // Increment perc until it reaches 100
                 if (prevPerc < 100) {
                     return prevPerc + 1;
                 } else {
-                    clearInterval(interval); // Clear the interval when perc reaches 100
+                    clearInterval(interval);
                     return 100;
                 }
             });
         }, 20);
 
-        // Clean up the interval on component unmount
         return () => clearInterval(interval);
-    }, []); // Empty dependency array means this effect runs only once on mount
+    }, []); 
 
     useEffect(() => {
         if (perc === 100) {
@@ -107,8 +105,36 @@ const Home = () => {
     requestAnimationFrame(raf)
 
     useEffect(() => {
-        const navItems = document.querySelectorAll('.HomePage .HomeContent .header .midCon .navItem');
 
+        const menu = document.querySelector('.header .menu')
+        const exitMenu = document.querySelector('.absoMenu .absoExit')
+        menu.addEventListener('click', () => {
+            gsap.to('.absoMenu', {
+                top: '0%',
+                ease: 'power2.Out',
+                onComplete: () => {
+                    gsap.to('.absoMenu .menuItems span', {
+                        y: '0%',
+                        ease: 'power2.Out',
+                        stagger: 0.3
+                    })
+                }
+            })
+        })
+        exitMenu.addEventListener('click', () => {
+            gsap.to('.absoMenu .menuItems span', {
+                y: '110%',
+                ease: 'power2.Out',
+                stagger: 0.3,
+                onComplete: () => {
+                    gsap.to('.absoMenu', {
+                        top: '-100%',
+                        ease: 'power2.Out',
+                    })
+                }
+            })
+        })
+        const navItems = document.querySelectorAll('.HomePage .HomeContent .header .midCon .navItem');
         navItems.forEach((itm) => {
             itm.addEventListener("mouseenter", () => {
                 gsap.to(itm.querySelector('.textOne'), {
@@ -132,7 +158,6 @@ const Home = () => {
             });
         });
     }, []);
-
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
@@ -160,8 +185,6 @@ const Home = () => {
                     end: 'bottom'
                 }
             })
-
-
             gsap.to('.HomePage .selected .textCon .textItem span', {
                 y: 0, // Snap to y: 0
                 ease: 'power2.Out',
@@ -173,8 +196,6 @@ const Home = () => {
                     end: 'bottom', // End the animation when the bottom of the viewport reaches the triggers
                 }
             });
-
-
             gsap.to('.itemFooter', {
                 top: '0%', // Snap to y: 0
                 ease: 'power2.Out',
@@ -210,7 +231,6 @@ const Home = () => {
 
                 }
             });
-
             gsap.to('.selectedProjects .firstProject .projectItem .imgCon', {
                 height: '100%', // Snap to y: 0
                 ease: 'power2.Out',
@@ -222,7 +242,7 @@ const Home = () => {
                         ease: 'power2.Out',
                         stagger: 0.3,
                     });
-        
+
                 },
                 scrollTrigger: {
                     trigger: '.selectedProjects', // Trigger when this element is reached
@@ -231,17 +251,12 @@ const Home = () => {
                 }
             });
 
-
-
         }
     }, [isToLoad])
-
-
     const cursorRef = useRef(null);
 
     useEffect(() => {
         const cursor = cursorRef.current;
-
         const moveCursor = (e) => {
             gsap.to(cursor, {
                 x: e.clientX - cursor.offsetWidth / 2,
@@ -250,24 +265,40 @@ const Home = () => {
                 duration: 1
             });
         };
-
         document.addEventListener('mousemove', moveCursor);
-
         return () => {
             document.removeEventListener('mousemove', moveCursor);
         };
     }, []);
-
-    const mailtoLink = `mailto:marcussalopaso1@gmail.com`;
-
-  const handleClick = () => {
-    window.location.href = mailtoLink;
-  };
-
     
+    const mailtoLink = `mailto:marcussalopaso1@gmail.com`;
+    const handleClick = () => {
+        window.location.href = mailtoLink;
+    };
+
+    const nav = useNavigate()
     return (
         <div className='HomePage'>
-      <div className='bg'></div>
+            <div className="absoMenu">
+                <div className="absoExit">
+                    close
+                </div>
+                <div className="menuItems">
+                    <span>HOME</span>
+                </div>
+                <div className="menuItems">
+                    <span>WORKS</span>
+                </div>
+                <div className="menuItems">
+                    <span>
+                    CONTACT
+                    </span>
+                </div>
+                <div className="menuItems" onClick={() => {nav('/about-me')}}>
+                    <span>ABOUT</span>
+                </div>
+            </div>
+            <div className='bg'></div>
             <div className="custom-cursor" ref={cursorRef}>
 
             </div>
@@ -325,7 +356,7 @@ const Home = () => {
                         <div className="navItems">
                             /
                         </div>
-                        <div className="navItem">
+                        <div className="navItem" onClick={() => {nav('/about-me')}}>
                             <div className="textOne">ABOUT</div>
                             <div className="textTwo">ABOUT</div>
                         </div>
@@ -333,7 +364,14 @@ const Home = () => {
                     <div className="year">
                         ©2024
                     </div>
+
+                    <div className="menu">
+                        <div className="lines"></div>
+                        <div className="lines"></div>
+                        <div className="lines"></div>
+                    </div>
                 </div>
+
                 <div className="firstCon">
                     <div className="imgCon">
                         <img src={sideBg} alt="" />
@@ -538,7 +576,7 @@ const Home = () => {
                         </Marquee>
                     </div>
                     <div className="whiteSpace">
-                        s
+
                     </div>
                 </div>
 
@@ -560,10 +598,10 @@ const Home = () => {
                         ©2024
                     </div>
                     <div className="item">
-                        <div className="social" onClick={() => {  window.open('https://www.facebook.com/marcuss09', '_blank');}}>FACEBOOK</div>
-                        <div className="social" onClick={() => {  window.open('https://www.instagram.com/mrcsxro/', '_blank');}}>INSTAGRAM</div>
-                        <div className="social" onClick={() => {  window.open('https://www.tiktok.com/@marcuxro', '_blank');}}>TIKTOK</div>
-                        <div className="social" onClick={() => {handleClick()}}>E-MAIL</div>
+                        <div className="social" onClick={() => { window.open('https://www.facebook.com/marcuss09', '_blank'); }}>FACEBOOK</div>
+                        <div className="social" onClick={() => { window.open('https://www.instagram.com/mrcsxro/', '_blank'); }}>INSTAGRAM</div>
+                        <div className="social" onClick={() => { window.open('https://www.tiktok.com/@marcuxro', '_blank'); }}>TIKTOK</div>
+                        <div className="social" onClick={() => { handleClick() }}>E-MAIL</div>
                     </div>
                 </div>
             </div>
