@@ -73,7 +73,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   padding: 1%;
   display: flex;
@@ -107,7 +107,7 @@ html {
   overflow: hidden;
   align-items: center;
   flex-direction: column;
-  z-index: 10099999900000000000000000000000000000000999999;
+  z-index: 1009999990000000000000000000099999999999999999999999999999999999000000000000999999;
   font-size: 10vw;
   font-weight: bold;
   font-family: "Bebas Neue", sans-serif;
@@ -136,6 +136,8 @@ html {
   top: 1%;
   right: 1%;
   font-size: 2rem;
+
+  z-index: 1000000000000000;
 }
 
 .loaders .loadWrap .upperCon {
@@ -145,7 +147,7 @@ html {
   justify-content: space-between;
   font-family: "Rajdhani", sans-serif;
   font-weight: 500;
-  height: 100px;
+  height: 10vh;
   pointer-events: none;
 }
 
@@ -157,7 +159,7 @@ html {
   height: 100%;
   display: flex;
   align-items: flex-end;
-  height: calc(100vh - 100px);
+  height: 90vh;
   pointer-events: none;
 }
 
@@ -189,12 +191,14 @@ html {
   padding-inline: 1%;
   padding-top: 10px;
   align-items: center;
-  z-index: 1000;
+  z-index: 10000000000000;
+  color: black;
   pointer-events: all;
   font-size: clamp(1rem, 5vw, 1vw);
   font-family: "Bebas Neue", sans-serif;
   font-weight: 500;
   opacity: 0;
+  
 }
 
 .header .logo {
@@ -226,7 +230,7 @@ html {
 
 
 .HomePage .HomeContent {
-  height: 100vh !important;
+  height: 100dvh;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -939,12 +943,13 @@ html::-webkit-scrollbar {
   background-color: white;
   position: relative;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .About .aboutCon {
   padding: 1%;
   padding-top: 80px;
+  position: sticky;
+  top: 0;
 }
 
 .aboutCon .landing {
@@ -952,15 +957,18 @@ html::-webkit-scrollbar {
   flex-direction: column;
   gap: 3vw;
 }
+
 .aboutCon .container {
   display: flex;
   gap: 10vw;
   align-items: flex-end;
 }
+
 .aboutCon .landing .imageCon {
   height: 80%;
   width: 60%;
 }
+
 .aboutCon .landing .imageCon .tetxt {
   font-family: "Bebas Neue", sans-serif;
   width: 100%;
@@ -975,6 +983,7 @@ html::-webkit-scrollbar {
 .aboutCon .name {
   font-size: 17vw;
 }
+
 .aboutCon .role {
   font-size: 5vw;
   overflow: hidden;
@@ -991,7 +1000,7 @@ html::-webkit-scrollbar {
   line-height: 90%;
 }
 
-.aboutCon .landing .imageCon img{
+.aboutCon .landing .imageCon img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -999,25 +1008,28 @@ html::-webkit-scrollbar {
 }
 
 .aboutCon .textCon .textItem {
-  font-size: 27vw;
+  font-size: 26.5vw;
   font-family: "Bebas Neue", sans-serif;
   align-items: flex-end;
   font-weight: 1000;
   line-height: 85%;
   transform: scaleX(1.5) scaleY(1.1);
   transform-origin: left;
-overflow: hidden;
   overflow: hidden;
-  
+  overflow: hidden;
+
 }
+
 .aboutCon .textCon .textItem:nth-child(2) {
-  font-size: 29vw;
-  
+  font-size: 28.5vw;
+
 }
+
 @media only screen and (max-width: 768px) {
   .aboutCon .textCon .textItem {
     font-size: 27vw;
   }
+
   .aboutCon .container {
     display: flex;
     gap: 3vw;
@@ -1026,6 +1038,7 @@ overflow: hidden;
     flex-direction: column-reverse;
 
   }
+
   .aboutCon .landing .imageCon {
     height: 80%;
     width: 100%;
@@ -1080,6 +1093,7 @@ overflow: hidden;
   transform-origin: left;
   margin-top: 50px;
 }
+
 .aboutCon .services .desc {
   width: 100%;
   font-family: "Rajdhani", sans-serif;
@@ -1094,12 +1108,13 @@ overflow: hidden;
   overflow-x: hidden;
 }
 
-.aboutCon .lowerCon{
+.aboutCon .lowerCon {
   display: flex;
   gap: 1vw;
   align-items: center;
 }
-.aboutCon  .serviceCon {
+
+.aboutCon .serviceCon {
   margin-top: 20px;
   display: flex;
   width: 100%;
@@ -1107,6 +1122,7 @@ overflow: hidden;
   flex-direction: column;
   padding-top: 20px;
 }
+
 .aboutCon .serviceCon .serviceItem {
   font-size: 10vw;
   font-family: "Bebas Neue", sans-serif;
@@ -1115,11 +1131,14 @@ overflow: hidden;
   display: flex;
   align-items: center;
 }
+
 .aboutCon .serviceCon .serviceItem:hover {
-color: #d94b23;
+  color: #d94b23;
 }
+
 .aboutCon .lowerCon .icon {
-  font-size: 6vw;;
+  font-size: 6vw;
+  ;
 }
 
 
@@ -1139,8 +1158,373 @@ color: #d94b23;
   overflow: hidden;
   scale: 0;
   opacity: 0;
-}.About .hoverImg img {
+}
+
+.About .hoverImg img {
   height: 40vh;
   width: 100%;
   object-fit: cover;
 }
+
+.aboutCon .beliefs {}
+
+.aboutCon .beliefs .rfm-marquee-container {
+  font-size: 15vw;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 900;
+  border-top: 1px solid #ccc;
+  color: #fb6f3e;
+  margin-top: 50px;
+}
+
+.aboutCon .beliefCon {
+  display: flex;
+  gap: 3vw;
+}
+
+.aboutCon .beliefCon .textCon {
+  width: 40%;
+}
+
+.aboutCon .beliefCon .textCon .desc {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.aboutCon .beliefCon .textCon .title {
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 90%;
+  font-size: 5vw;
+}
+
+.aboutCon .beliefCon .imgCon {
+  height: 150vh;
+  width: 100%;
+}
+
+.aboutCon .beliefCon .imgCon img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .aboutCon .beliefCon {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .aboutCon .beliefCon .textCon {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6vw;
+    gap: 0px;
+  }
+
+  .aboutCon .beliefCon .textCon .title {
+    font-size: 15vw;
+  }
+
+  .aboutCon .beliefCon .textCon .desc {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.aboutCon .cert {
+  margin-top: 50px;
+  border-top: 1px solid #ccc;
+  padding-top: 50px;
+}
+
+.aboutCon .cert .titleCon .rfm-marquee-container {
+  overflow: hidden;
+}
+
+
+
+.aboutCon .cert .titleCon .titleItem:nth-child(1) {
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 90%;
+  color: #989ec0;
+  font-size: 42vw;
+}
+
+.aboutCon .cert .titleCon .titleItem:nth-child(2) {
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 90%;
+  font-size: 24vw;
+}
+
+
+.aboutCon .certCon {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  border-top: 1px solid #ccc;
+  padding-top: 50px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 50px;
+  position: sticky;
+  top: 0%;
+  left: 0%;
+}
+
+
+.aboutCon .certCon .certItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  line-height: 90%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.aboutCon .certCon .certItem span {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+
+.aboutCon .certCon .RItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 90%;
+  overflow: hidden;
+  width: 100%;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.aboutCon .certCon .imgCon {
+  height: 100%;
+  width: 0px;
+  /* Initial small width */
+  overflow: hidden;
+  transition-delay: 50ms;
+  transition: width 350ms ease;
+  /* Transition for width */
+  position: relative;
+  /* Ensure the container has a positioning context */
+}
+
+.aboutCon .certCon .imgCon img {
+  height: 100%;
+  /* Ensure the image takes the full height of the container */
+  width: 10vw;
+  /* Maintain aspect ratio */
+
+  object-fit: cover;
+  /* Ensure the image covers the container and gets cropped */
+}
+
+
+
+.aboutCon .certCon :hover {
+  .imgCon {
+    width: 10vw;
+
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutCon .certCon .certItem .desc {
+    display: none;
+  }
+}
+
+.aboutCon .certCon .certItem .title {
+  font-weight: 900;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 100%;
+  font-size: 13vw;
+  transform: scaleY(1.2);
+  transform-origin: center;
+  z-index: 5;
+}
+
+.aboutCon .certCon .certItem .title span {
+  font-weight: 900;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 100%;
+  font-size: 5vw;
+  transform: scaleY(1.2);
+  transform-origin: center;
+  z-index: 5;
+}
+
+.aboutCon .certCon .certItem {
+  position: relative;
+}
+
+.aboutCon .certCon .certItem .absoBg {
+  background-color: #ccc;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: height 200ms cubic-bezier(0.55, 0, 0.55, 0.2);
+  /* Custom easing function */
+}
+
+
+.aboutCon .certCon .certItem:hover {
+  .title {
+    color: #d94b23;
+  }
+
+  .absoBg {
+    height: 100%;
+  }
+}
+
+.aboutCon .certCon .certItem .desc {
+  width: 100%;
+  max-width: 20%;
+  font-size: 1.3vw;
+  height: 100%;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  z-index: 5;
+  line-height: normal;
+}
+
+.certCon .certItem span {
+  z-index: 5;
+}
+
+.About {
+  position: sticky;
+  top: 0%;
+}
+
+ .stickyCons {
+  position: relative;
+  height: 200vh; /* Ensuring there is enough scroll space */
+}
+
+ .stickyCons .craft {
+  position: sticky;
+  top: 0%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 900;
+  font-size: 15vw;
+  z-index: 100;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+ .stickyCons .craft .desc {
+  font-size: 5vw;
+  font-weight: 100;
+  line-height: 90%;
+}
+
+ .stickyCons .craft .headerText {
+  overflow: hidden;
+  display: flex;
+  gap: 1vw;
+  line-height: 90%;
+}
+
+ .stickyCons .craft .headerText span img {
+  overflow: hidden;
+  height: 11vw;
+  scale: 0;
+  width: 15vw;
+  object-fit: cover;
+}
+
+
+
+ .stickyCons .language {
+  height: 100dvh;
+  display: flex;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 900;
+  font-size: 15vw;
+  color: #d94b23;
+  position: fixed;
+  top: 0;
+  width: 130vw;
+  z-index: 100000000;
+  left: 100vw;
+}
+.language .textCon {
+width: 100vw;
+background-color: #989ec0;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+position: relative;
+cursor: none;
+}
+.language .cv {
+  font-size: 1vw;
+  left: 10%;
+  transform: translate(-50%, -50%,);
+  z-index: 1000000000;
+background-color: #f9cf71;
+border-radius: 20px;
+  top: 0;
+  position: absolute;
+  color: black;
+  font-weight: 100;
+  cursor: none;
+  padding: 10px;
+}
+.language .textCon .textItem {
+  line-height: 90%;
+}
+.language .fillerDiv{
+  width: 30vw;
+  height: 100vh;
+}
+
+.language .textCon .textItem:nth-child(2) {
+  font-size: 36vw;
+  transform: scaleY(1.1) scaleX(1.6);
+}
+
+.next .imgCOn {
+  height: 100px;
+  width: 100px;
+}
+
+.next .imgCOn img {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+

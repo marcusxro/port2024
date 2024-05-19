@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     useEffect(() => {
 
         const menu = document.querySelector('.header .menu')
-        const exitMenu = document.querySelector('.absoMenu .absoExit')
+        const exitMenu = document.querySelector('.absoExit')
 
         menu.addEventListener('click', () => {
             gsap.to('.absoMenu', {
@@ -22,6 +23,7 @@ const Header = () => {
         })
 
         exitMenu.addEventListener('click', () => {
+            alert("s")
             gsap.to('.absoMenu .menuItems span', {
                 y: '110%',
                 ease: 'power2.Out',
@@ -62,6 +64,8 @@ const Header = () => {
         });
     }, []);
 
+    const nav = useNavigate()
+
     return (
         <>
             <div className="absoMenu">
@@ -88,7 +92,7 @@ const Header = () => {
                 <div className="logo">Marcus <br />
                     Salopaso</div>
                 <div className="midCon">
-                    <div className="navItem">
+                    <div className="navItem" onClick={() => {nav('/')}}>
                         <div className="textOne">HOME</div>
                         <div className="textTwo">HOME</div>
                     </div>
@@ -109,7 +113,7 @@ const Header = () => {
                     <div className="navItems">
                         /
                     </div>
-                    <div className="navItem">
+                    <div className="navItem" onClick={() => {nav('/about-me'); window.scrollTo(0,0)}}>
                         <div className="textOne">ABOUT</div>
                         <div className="textTwo">ABOUT</div>
                     </div>

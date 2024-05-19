@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import Marquee from "react-fast-marquee";
 import brutalistImg from '../img/brutalistTwo.jpg'
 import sideBg from '../mockups/sideBg.jpg'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 //mockups img
 
 import cafeEunoia from '../mockups/cafe.png'
@@ -16,6 +16,7 @@ import pcupIT from '../mockups/pcupIt.jpg'
 import melchoraScanner from '../mockups/melchoraScanner.jpg'
 import devanImg from '../mockups/devanImg.jpg'
 import orderingApp from '../mockups/orderingAPp.jpg'
+import Header from '../comps/Header';
 
 
 
@@ -49,7 +50,7 @@ const Home = () => {
         }, 20);
 
         return () => clearInterval(interval);
-    }, []); 
+    }, []);
 
     useEffect(() => {
         if (perc === 100) {
@@ -66,7 +67,7 @@ const Home = () => {
                             setToLoad(!isToLoad)
                         }
                     })
-                    gsap.to('.HomeContent .header', {
+                    gsap.to('.HomePage .header', {
                         opacity: 1,
                         ease: 'power2.in',
                         delay: 0.5
@@ -109,9 +110,11 @@ const Home = () => {
         const menu = document.querySelector('.header .menu')
         const exitMenu = document.querySelector('.absoMenu .absoExit')
         menu.addEventListener('click', () => {
+
             gsap.to('.absoMenu', {
                 top: '0%',
                 ease: 'power2.Out',
+                opacity: 1,
                 onComplete: () => {
                     gsap.to('.absoMenu .menuItems span', {
                         y: '0%',
@@ -122,8 +125,9 @@ const Home = () => {
             })
         })
         exitMenu.addEventListener('click', () => {
+            alert("aha  ")
             gsap.to('.absoMenu .menuItems span', {
-                y: '110%',
+                opacity: '0',
                 ease: 'power2.Out',
                 stagger: 0.3,
                 onComplete: () => {
@@ -134,7 +138,7 @@ const Home = () => {
                 }
             })
         })
-        const navItems = document.querySelectorAll('.HomePage .HomeContent .header .midCon .navItem');
+        const navItems = document.querySelectorAll('.HomePage .header .midCon .navItem');
         navItems.forEach((itm) => {
             itm.addEventListener("mouseenter", () => {
                 gsap.to(itm.querySelector('.textOne'), {
@@ -270,7 +274,7 @@ const Home = () => {
             document.removeEventListener('mousemove', moveCursor);
         };
     }, []);
-    
+
     const mailtoLink = `mailto:marcussalopaso1@gmail.com`;
     const handleClick = () => {
         window.location.href = mailtoLink;
@@ -279,6 +283,7 @@ const Home = () => {
     const nav = useNavigate()
     return (
         <div className='HomePage'>
+            <Header />
             <div className="absoMenu">
                 <div className="absoExit">
                     close
@@ -291,10 +296,10 @@ const Home = () => {
                 </div>
                 <div className="menuItems">
                     <span>
-                    CONTACT
+                        CONTACT
                     </span>
                 </div>
-                <div className="menuItems" onClick={() => {nav('/about-me')}}>
+                <div className="menuItems" onClick={() => { nav('/about-me');     window.location.reload()}}>
                     <span>ABOUT</span>
                 </div>
             </div>
@@ -302,9 +307,7 @@ const Home = () => {
             <div className="custom-cursor" ref={cursorRef}>
 
             </div>
-
             <div className="loaders">
-
                 <div className="loadWrap">
                     <div className="upperCon">
                         <div className="desc">
@@ -316,7 +319,8 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="secCon">
-                        <Marquee autoFill
+                        <Marquee
+                            autoFill
                             speed={250}>
                             <div className="loaderMarq">
                                 LOADING (SHORTLY)
@@ -331,46 +335,7 @@ const Home = () => {
             </div>
 
             <div className="HomeContent">
-                <div className="header">
-                    <div className="logo">Marcus <br />
-                        Salopaso</div>
-                    <div className="midCon">
-                        <div className="navItem">
-                            <div className="textOne">HOME</div>
-                            <div className="textTwo">HOME</div>
-                        </div>
-                        <div className="navItems">
-                            /
-                        </div>
-                        <div className="navItem">
-                            <div className="textOne">WORKS</div>
-                            <div className="textTwo">WORKS</div>
-                        </div>
-                        <div className="navItems">
-                            /
-                        </div>
-                        <div className="navItem">
-                            <div className="textOne">CONTACT</div>
-                            <div className="textTwo">CONTACT</div>
-                        </div>
-                        <div className="navItems">
-                            /
-                        </div>
-                        <div className="navItem" onClick={() => {nav('/about-me')}}>
-                            <div className="textOne">ABOUT</div>
-                            <div className="textTwo">ABOUT</div>
-                        </div>
-                    </div>
-                    <div className="year">
-                        ©2024
-                    </div>
-
-                    <div className="menu">
-                        <div className="lines"></div>
-                        <div className="lines"></div>
-                        <div className="lines"></div>
-                    </div>
-                </div>
+                
 
                 <div className="firstCon">
                     <div className="imgCon">
