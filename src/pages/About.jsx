@@ -231,44 +231,56 @@ const About = () => {
 
 
 
-    gsap.registerPlugin(ScrollTrigger)
+
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+    
+        // Define your animations
+        const initAnimations = () => {
+            gsap.to('.About .stickyCons .craft .headerText span img', {
+                scale: '1',
+                ease: 'power2.out',
+                delay: 1,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '.stickyCons .craft',
+                    start: 'top 90%',
+                    end: 'bottom',
+                }
+            });
+            gsap.to('.stickyCons .craft', {
+                y: 0,
+                scrollTrigger: {
+                    trigger: '.stickyCons .craft',
+                    start: 'bottom 100%',
+                    pin: true,
+                    scrub: true,
+                },
+            });
+            gsap.to('.About .stickyCons .language', {
+                left: '-30vw',
+                ease: 'power2.out',
+                delay: 0.5,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '.stickyCons .craft',
+                    start: 'bottom 100%',
+                    scrub: 1,
+                }
+            });
+        };
+    
+        // Use requestAnimationFrame and setTimeout to ensure elements are loaded
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                initAnimations();
+                ScrollTrigger.refresh();
+            }, 500);
+        });
+    }, []);
+    
+    
 
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.to('.About .stickyCons .craft .headerText span img', {
-            scale: '1',
-            ease: 'power2.out',
-            delay: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '.stickyCons .craft',
-                start: 'bottom 90%',
-                end: 'bottom',
-            }
-        })
-
-
-        gsap.to('.About .stickyCons .language', {
-            left: '-30vw',
-            ease: 'power2.out',
-            delay: 0.5,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '.stickyCons .craft',
-                start: 'bottom 100%',
-                scrub: 1,
-            }
-        })
-        gsap.to('.stickyCons .craft', {
-            y: 0,
-            scrollTrigger: {
-                trigger: '.stickyCons .craft',
-                start: 'bottom 100%',
-                pin: true,
-                scrub: true,
-            }
-        })
-    }, [])
 
 
  const cursorRefs = useRef(null);
@@ -393,7 +405,7 @@ const About = () => {
                     <div className="cert">
                         <div className="titleCon">
                             <Marquee
-                                speed={200}
+                                speed={100}
                                 autoFill
                                 direction='left'>
                                 <div className="titleItem">
@@ -401,7 +413,7 @@ const About = () => {
                                 </div>
                             </Marquee>
                             <Marquee
-                                speed={200}
+                                speed={100}
                                 autoFill
                                 direction='right'>
                                 <div className="titleItem">

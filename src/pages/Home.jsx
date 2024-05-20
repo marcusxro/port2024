@@ -17,7 +17,7 @@ import melchoraScanner from '../mockups/melchoraScanner.jpg'
 import devanImg from '../mockups/devanImg.jpg'
 import orderingApp from '../mockups/orderingAPp.jpg'
 import Header from '../comps/Header';
-
+import GalleryVar from '../GalleryObj';
 
 
 
@@ -105,63 +105,6 @@ const Home = () => {
 
     requestAnimationFrame(raf)
 
-    useEffect(() => {
-
-        const menu = document.querySelector('.header .menu')
-        const exitMenu = document.querySelector('.absoMenu .absoExit')
-        menu.addEventListener('click', () => {
-
-            gsap.to('.absoMenu', {
-                top: '0%',
-                ease: 'power2.Out',
-                opacity: 1,
-                onComplete: () => {
-                    gsap.to('.absoMenu .menuItems span', {
-                        y: '0%',
-                        ease: 'power2.Out',
-                        stagger: 0.3
-                    })
-                }
-            })
-        })
-        exitMenu.addEventListener('click', () => {
-            alert("aha  ")
-            gsap.to('.absoMenu .menuItems span', {
-                opacity: '0',
-                ease: 'power2.Out',
-                stagger: 0.3,
-                onComplete: () => {
-                    gsap.to('.absoMenu', {
-                        top: '-100%',
-                        ease: 'power2.Out',
-                    })
-                }
-            })
-        })
-        const navItems = document.querySelectorAll('.HomePage .header .midCon .navItem');
-        navItems.forEach((itm) => {
-            itm.addEventListener("mouseenter", () => {
-                gsap.to(itm.querySelector('.textOne'), {
-                    y: "-100%",
-                    ease: 'power2.Out',
-                });
-                gsap.to(itm.querySelector('.textTwo'), {
-                    y: "-90%",
-                    ease: 'power2.Out',
-                });
-            });
-            itm.addEventListener("mouseleave", () => {
-                gsap.to(itm.querySelector('.textOne'), {
-                    y: 0,
-                    ease: 'power2.Out',
-                });
-                gsap.to(itm.querySelector('.textTwo'), {
-                    y: "100%",
-                    ease: 'power2.Out',
-                });
-            });
-        });
-    }, []);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
@@ -281,28 +224,66 @@ const Home = () => {
     };
 
     const nav = useNavigate()
+
+
+    const galleryRef = useRef(null)
+    const [items, setItems] = useState([])
+
+
+    useEffect(() => {
+        console.log(GalleryVar)
+        const generateItems = () => {
+            const rows = [
+                { id: 1, count: 2 },
+                { id: 2, count: 3 },
+                { id: 3, count: 2 },
+            ]
+
+            const newItems = rows.map((itm) => {
+                return Array.from({ length: itm.count }, (_, index) => {
+                    const itemId = `${itm.id}-${index}`;
+                    const filteredImg = GalleryVar.find((v) => v.id === itemId)
+
+                    return {
+                        id: itemId,
+                        rowId: itm.id,
+                        galleryPic: filteredImg
+                    }
+                })
+            })
+
+            setItems(newItems)
+        }
+
+        generateItems()
+
+        const handleMouseMove = (e) => {
+            const { clientX, clientY, currentTarget } = e;
+            const { width, height, left, top } = currentTarget.getBoundingClientRect();
+            const centerX = left + width / 2;
+            const centerY = top + height / 2;
+
+            const sensitivity = 1; // Adjust sensitivity as needed
+            const deltaX = (clientX - centerX) / sensitivity;
+            const deltaY = (clientY - centerY) / sensitivity;
+
+            if (galleryRef.current) {
+                galleryRef.current.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`;
+            }
+        };
+
+        const container = document.querySelector('.containerGall');
+        container.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            container.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
     return (
         <div className='HomePage'>
             <Header />
-            <div className="absoMenu">
-                <div className="absoExit">
-                    close
-                </div>
-                <div className="menuItems">
-                    <span>HOME</span>
-                </div>
-                <div className="menuItems">
-                    <span>WORKS</span>
-                </div>
-                <div className="menuItems">
-                    <span>
-                        CONTACT
-                    </span>
-                </div>
-                <div className="menuItems" onClick={() => { nav('/about-me');     window.location.reload()}}>
-                    <span>ABOUT</span>
-                </div>
-            </div>
+
             <div className='bg'></div>
             <div className="custom-cursor" ref={cursorRef}>
 
@@ -335,7 +316,7 @@ const Home = () => {
             </div>
 
             <div className="HomeContent">
-                
+
 
                 <div className="firstCon">
                     <div className="imgCon">
@@ -373,7 +354,22 @@ const Home = () => {
                 </div>
             </div>
 
-
+            <div className="containerGall">
+                <div className="gallery" ref={galleryRef}>
+                    {items.map((row, rowIndex) => (
+                        <div className="row" key={`row-${rowIndex}`}>
+                            {row.map((Item) => (
+                                <div className="itemz" key={Item.id}>
+                                    <div className="prev-img">
+                                        <img src={Item.galleryPic.path} />
+                                    </div>
+                                    <p>{Item.galleryPic.imageName}</p>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             <div className="stickyCon">
                 <div className="section">

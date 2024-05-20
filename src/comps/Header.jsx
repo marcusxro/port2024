@@ -8,26 +8,43 @@ const Header = () => {
         const menu = document.querySelector('.header .menu')
         const exitMenu = document.querySelector('.absoExit')
 
+        console.log(exitMenu)
         menu.addEventListener('click', () => {
+
+            gsap.to('.header',{
+                pointerEvents: 'none'
+            })
+            gsap.to(menu,{
+                opacity:0,
+                pointerEvents:'none'
+            })
             gsap.to('.absoMenu', {
                 top: '0%',
                 ease: 'power2.Out',
                 onComplete: () => {
                     gsap.to('.absoMenu .menuItems span', {
                         y: '0%',
+                        opacity: 1,
                         ease: 'power2.Out',
                         stagger: 0.3
+
                     })
                 }
             })
         })
 
         exitMenu.addEventListener('click', () => {
-            alert("s")
+            gsap.to('.header',{
+                pointerEvents: 'none'
+            })
+            gsap.to(menu,{
+                opacity:1,
+                pointerEvents:'all'
+            })
             gsap.to('.absoMenu .menuItems span', {
-                y: '110%',
+                opacity: 0,
                 ease: 'power2.Out',
-                stagger: 0.3,
+                stagger: 0.1,
                 onComplete: () => {
                     gsap.to('.absoMenu', {
                         top: '-100%',
